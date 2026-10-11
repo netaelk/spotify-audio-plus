@@ -1,0 +1,1 @@
+SX.registry.start();

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Spotify Audio+",
+  "version": "1.0.0",
+  "description": "Enhance audio control (segment loop, short skipping)",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://open.spotify.com/*"],
+      "css": ["src/styles.css"],
+      "js": [
+        "src/core/namespace.js",
+        "src/core/events.js",
+        "src/core/selectors.js",
+        "src/core/player.js",
+        "src/core/ui.js",
+        "src/core/registry.js",
+        "src/features/skip.js",
+        "src/features/ab-loop.js",
+        "src/main.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

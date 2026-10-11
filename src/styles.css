@@ -1,0 +1,32 @@
+.sx-group { display: flex; align-items: center; }
+
+.sx-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  position: relative; width: 32px; height: 32px; padding: 0;
+  background: none; border: 0; border-radius: 50%; cursor: pointer;
+  color: var(--text-subdued, #b3b3b3);
+}
+.sx-btn:hover { color: var(--text-base, #fff); transform: scale(1.06); }
+.sx-btn svg { width: 22px; height: 22px; fill: currentColor; pointer-events: none; }
+
+/* A-B loop states */
+.sx-ab[data-state="idle"] { color: var(--text-subdued, #b3b3b3); }
+.sx-ab[data-state="setA"],
+.sx-ab[data-state="setB"] { color: var(--text-base, #fff); }
+.sx-ab[data-state="active"] { color: #1ed760; }
+.sx-ab[data-state="active"]:hover { color: #3be477; }
+.sx-ab[data-state="active"]::after {
+  content: ""; position: absolute; bottom: 1px; left: 50%;
+  width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: currentColor;
+}
+
+/* A-B loop range drawn on the progress bar */
+.sx-loop-host { position: relative; }
+.sx-loop {
+  position: absolute; top: 50%; height: 4px; margin-top: -2px;
+  display: flex; pointer-events: none; border-radius: 2px; overflow: hidden;
+}
+.sx-loop-played { background: #4ff58a; height: 100%; }  /* light green: already played */
+.sx-loop-rest { background: #0b6b30; height: 100%; }    /* dark green: still to play */
+.sx-loop[data-mode="marker"] { width: 3px; background: #4ff58a; }
+.sx-loop[data-mode="marker"] > div { display: none; }
